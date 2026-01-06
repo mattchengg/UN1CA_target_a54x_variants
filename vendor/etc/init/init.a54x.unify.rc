@@ -6,3 +6,9 @@ on early-fs
     mount none /vendor/firmware/${ro.boot.em.model}/pablo_icpufw.bin /vendor/firmware/pablo_icpufw.bin bind
     mount none /vendor/firmware/${ro.boot.em.model}/vts.bin /vendor/firmware/vts.bin bind
     mount none /vendor/tee_${ro.boot.em.model} /vendor/tee bind
+
+on post-fs-data && property:ro.boot.em.model=SM-A5460
+    mount none /dev/null /system/etc/permissions/privapp-permissions-com.samsung.euicc.xml bind
+
+on post-fs-data && property:ro.boot.em.model=SM-A546E
+    mount none /dev/null /system/etc/permissions/privapp-permissions-com.samsung.euicc.xml bind
